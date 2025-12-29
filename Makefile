@@ -35,7 +35,4 @@ publish-docker-base:
 	docker image push cliffano/base:latest
 	docker image push cliffano/base:$(version)
 
-release:
-	rtk release
-
-.PHONY: ci clean deps lint build-aws-base build-docker-base publish-docker-base release
+.PHONY: ci clean deps lint build-aws-base build-docker-base publish-docker-base
