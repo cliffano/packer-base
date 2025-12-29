@@ -17,7 +17,7 @@ variable "version" {
 }
 
 locals {
-  env_path = "/root/.cargo/bin:/root/.local/bin:/root/go/bin:.venv/bin:/opt/poetry-venv/bin:/opt/poetry/bin:/usr/local/go/bin:/usr/local/maven/bin:/usr/local/node/bin:/usr/local/openjdk-jdk/bin:/var/homebrew/linked/cyclonedx-cli/bin/:/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+  env_path = "/var/homebrew/linked/cyclonedx-cli/bin/:/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 }
 
 source "docker" "base" {
