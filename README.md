@@ -20,7 +20,7 @@ Or alternatively, you can create the Docker image:
 
     git clone https://github.com/cliffano/packer-base
     cd packer-base
-    make docker
+    make build-docker-base
 
 An image with `cliffano/base` repository and `latest` tag should show up:
 
