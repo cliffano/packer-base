@@ -9,8 +9,8 @@ stage:
 	mkdir -p stage/ stage/ansible/roles/ stage/ansible/collections/
 
 deps:
-	packer plugins install github.com/hashicorp/docker 1.0.10
-	packer plugins install github.com/hashicorp/ansible 1.1.1
+	packer plugins install github.com/hashicorp/docker 1.1.2
+	packer plugins install github.com/hashicorp/ansible 1.1.4
 
 lint:
 	echo "TODO: Ansible Lint"
