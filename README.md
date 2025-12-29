@@ -45,8 +45,4 @@ Simply run a container using cliffano/base image:
 Development
 -----------
 
-Extra path should be added to the following:
-
-* provisioners/shell/info-pre.sh
-* provisioners/shell/info-post.sh
-* templates/packer/docker-base.pkr.hcl
+Extra system path should be added to `locals.env_path` in `templates/packer/docker-base.pkr.hcl`
