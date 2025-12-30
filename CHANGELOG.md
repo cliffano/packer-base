@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Removed
+- Remove unused community.general Ansible collection
+
+### Fixed
+- Fix Publish Docker Base workflow name
+
 ## 0.10.0 - 2025-12-30
 ### Added
 - Initial version
