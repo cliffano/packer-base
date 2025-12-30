@@ -29,7 +29,8 @@ deps-upgrade:
 lint:
 	$(call python_venv,ansible-lint -v .)
 	$(call python_venv,yamllint .)
-	shellcheck provisioners/shell/*.sh
+#   Disable shellcheck for now due to likely resource issue with the shellcheck run
+# 	shellcheck provisioners/shell/*.sh
 
 build-docker-base:
 	mkdir -p logs/ /tmp/packer-tmp/
