@@ -24,11 +24,12 @@ Or alternatively, you can create the Docker image:
 
 An image with `cliffano/base` repository and `latest` tag should show up:
 
-    haku> docker images
+    shikadai> docker images
 
-    REPOSITORY                                       TAG                 IMAGE ID            CREATED             SIZE
-    cliffano/base                                  latest              3f45c1bc0e76        5 hours ago         1.5GB
-    ubuntu                                           latest              735f80812f90        2 weeks ago         83.5MB
+    REPOSITORY        TAG           IMAGE ID       CREATED          SIZE
+    cliffano/base     0.9.0-pre.0   3cda8b4cf33c   27 minutes ago   4.63GB
+    cliffano/base     latest        3cda8b4cf33c   27 minutes ago   4.63GB
+    ubuntu            24.04         c35e29c94501   2 months ago     139MB
 
 Usage
 -----
