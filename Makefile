@@ -8,19 +8,28 @@ clean:
 stage:
 	mkdir -p stage/ stage/ansible/roles/ stage/ansible/collections/
 
+rmdeps:
+	rm -rf .venv/
+
+define python_venv
+	. .venv/bin/activate && $(1)
+endef
+
 deps:
+	python3 -m venv .venv
+	$(call python_venv,python3 -m pip install -r requirements.txt)
 	packer plugins install github.com/hashicorp/docker 1.1.2
 	packer plugins install github.com/hashicorp/ansible 1.1.4
 
+deps-upgrade:
+	python3 -m venv .venv
+	$(call python_venv,python3 -m pip install -r requirements-dev.txt)
+	$(call python_venv,pip-compile --upgrade)
+
 lint:
-	echo "TODO: Ansible Lint"
-	# bundle exec puppet-lint \
-	# 	--fail-on-warnings \
-	# 	--no-documentation-check \
-	# 	provisioners/*.pp \
-	# 	modules-extra/*/manifests/langs/*.pp
-	# shellcheck \
-		# provisioners/shell/*.sh
+	$(call python_venv,ansible-lint -v .)
+	$(call python_venv,yamllint .)
+	shellcheck provisioners/shell/*.sh
 
 build-docker-base:
 	mkdir -p logs/ /tmp/packer-tmp/
@@ -35,4 +44,4 @@ publish-docker-base:
 	docker image push cliffano/base:latest
 	docker image push cliffano/base:$(version)
 
-.PHONY: ci clean deps lint build-aws-base build-docker-base publish-docker-base
+.PHONY: ci clean rmdeps deps deps-upgrade lint build-aws-base build-docker-base publish-docker-base
