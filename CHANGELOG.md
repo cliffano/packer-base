@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Removed
+- Remove snapd due to lack of systemd on container
+
 ## 1.0.0 - 2026-04-18
 ### Added
 - Add snapd package provisioning
