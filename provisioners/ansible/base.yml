@@ -11,6 +11,7 @@
           - jq
           - net-tools # for netstat et al
           - shellcheck
+          - snapd
           - telnet
           - vim
           - zip
