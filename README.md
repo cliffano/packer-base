@@ -1,16 +1,14 @@
-<img align="right" src="https://raw.github.com/cliffano/packer-base/master/avatar.jpg" alt="Avatar"/>
+![Avatar](avatar.jpg)
 
 [![Build Status](https://github.com/cliffano/packer-base/workflows/CI/badge.svg)](https://github.com/cliffano/packer-base/actions?query=workflow%3ACI)
 [![Docker Pulls Count](https://img.shields.io/docker/pulls/cliffano/base.svg)](https://hub.docker.com/r/cliffano/base/)
 [![Security Status](https://snyk.io/test/github/cliffano/packer-base/badge.svg)](https://snyk.io/test/github/cliffano/packer-base)
 
-Packer Base
------------
+# Packer Base
 
 Packer Base is a Packer builder of Docker base image which contains vanilla Ubuntu OS with some common tools.
 
-Installation
-------------
+## Installation
 
 Pull Base Docker image from Docker Hub:
 
@@ -31,8 +29,7 @@ An image with `cliffano/base` repository and `latest` tag should show up:
     cliffano/base     latest        3cda8b4cf33c   27 minutes ago   4.63GB
     ubuntu            24.04         c35e29c94501   2 months ago     139MB
 
-Usage
------
+## Usage
 
 Simply run a container using cliffano/base image:
 
@@ -43,7 +40,6 @@ Simply run a container using cliffano/base image:
       -v $(pwd):/opt/workspace \
       -i -t cliffano/base
 
-Development
------------
+## Development
 
 Extra system path should be added to `locals.env_path` in `templates/packer/docker-base.pkr.hcl`
