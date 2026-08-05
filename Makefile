@@ -1,6 +1,6 @@
 version ?= 1.1.1-pre.0
 
-ci: clean stage deps lint build-docker-base
+ci: clean stage lint build-docker-base
 
 clean:
 	rm -rf stage/ logs/ /tmp/packer-tmp/

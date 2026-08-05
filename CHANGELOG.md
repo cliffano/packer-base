@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Decouple deps from ci alias target
+
 ## 1.1.0 - 2026-08-05
 ### Changed
 - Upgrade source to Ubuntu 26.04
