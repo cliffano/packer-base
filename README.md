@@ -1,8 +1,12 @@
+<!-- BEGIN:AVATAR -->
 ![Avatar](avatar.jpg)
+<!-- END:AVATAR -->
 
+<!-- BEGIN:BADGES -->
 [![Build Status](https://github.com/cliffano/packer-base/workflows/CI/badge.svg)](https://github.com/cliffano/packer-base/actions?query=workflow%3ACI)
 [![Docker Pulls Count](https://img.shields.io/docker/pulls/cliffano/base.svg)](https://hub.docker.com/r/cliffano/base/)
 [![Security Status](https://snyk.io/test/github/cliffano/packer-base/badge.svg)](https://snyk.io/test/github/cliffano/packer-base)
+<!-- END:BADGES -->
 
 # Packer Base
 
