@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Upgrade source to Ubuntu 26.04
+- Upgrade Docker Packer Plugin to 1.1.4
+- Upgrade Ansible Packer Plugin to 1.1.6
+
 ### Removed
 - Remove snapd due to lack of systemd on container
 

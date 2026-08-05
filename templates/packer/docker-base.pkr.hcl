@@ -21,7 +21,7 @@ locals {
 }
 
 source "docker" "base" {
-  image  = "ubuntu:24.04"
+  image  = "ubuntu:26.04"
   commit = true
   run_command = [
     "-d",
