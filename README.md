@@ -12,33 +12,41 @@ Packer Base is a Packer builder of Docker base image which contains vanilla Ubun
 
 Pull Base Docker image from Docker Hub:
 
-    docker pull cliffano/base
+```shell
+docker pull cliffano/base
+```
 
 Or alternatively, you can create the Docker image:
 
-    git clone https://github.com/cliffano/packer-base
-    cd packer-base
-    make build-docker-base
+```shell
+git clone https://github.com/cliffano/packer-base
+cd packer-base
+make build-docker-base
+```
 
 An image with `cliffano/base` repository and `latest` tag should show up:
 
-    shikadai> docker images
+```text
+shikadai> docker images
 
-    REPOSITORY        TAG           IMAGE ID       CREATED          SIZE
-    cliffano/base     0.9.0-pre.0   3cda8b4cf33c   27 minutes ago   4.63GB
-    cliffano/base     latest        3cda8b4cf33c   27 minutes ago   4.63GB
-    ubuntu            24.04         c35e29c94501   2 months ago     139MB
+REPOSITORY        TAG           IMAGE ID       CREATED          SIZE
+cliffano/base     0.9.0-pre.0   3cda8b4cf33c   27 minutes ago   4.63GB
+cliffano/base     latest        3cda8b4cf33c   27 minutes ago   4.63GB
+ubuntu            24.04         c35e29c94501   2 months ago     139MB
+```
 
 ## Usage
 
 Simply run a container using cliffano/base image:
 
-    docker run \
-      --rm \
-      --workdir /opt/workspace \
-      -v /var/run/docker.sock:/var/run/docker.sock \
-      -v $(pwd):/opt/workspace \
-      -i -t cliffano/base
+```javascript
+docker run \
+  --rm \
+  --workdir /opt/workspace \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $(pwd):/opt/workspace \
+  -i -t cliffano/base
+```
 
 ## Development
 
