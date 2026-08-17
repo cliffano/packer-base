@@ -9,6 +9,7 @@
     - ansible.builtin.apt:
         pkg:
           - jq
+          - libicu-dev # needed by cyclonedx
           - net-tools # for netstat et al
           - shellcheck
           - telnet
@@ -16,6 +17,7 @@
           - zip
 
     - ansible.builtin.command: /home/linuxbrew/.linuxbrew/bin/brew install cyclonedx/cyclonedx/cyclonedx-cli
+    - ansible.builtin.command: /home/linuxbrew/.linuxbrew/bin/brew install cdxgen
 
     - ansible.builtin.file:
         path: /root/.local/bin
