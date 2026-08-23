@@ -22,13 +22,14 @@ jobs:
           extra_args: '-v ~/.docker/config.json:/root/.docker/config.json:ro'
           command: >
             make deps clean stage lint build-docker-base &&
-            
+
             cat logs/packer-docker-base.log &&
-            
+
             docker --version &&
-            
+
             docker info  &&
-            
+
             docker inspect cliffano/base &&
-            
+
             make publish-docker-base
+
