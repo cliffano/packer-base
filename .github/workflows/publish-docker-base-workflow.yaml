@@ -16,6 +16,8 @@ jobs:
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: 2.0.0
       - uses: docker/login-action@v4
         with:
           username: cliffano
@@ -27,7 +29,8 @@ jobs:
           shell: bash
           extra_args: '-v ~/.docker/config.json:/root/.docker/config.json:ro'
           command: >
-            make deps clean stage lint build-docker-base arch=${{ matrix.arch }} &&
+            make deps clean stage lint build-docker-base arch=${{ matrix.arch }}
+            &&
 
             cat logs/packer-docker-base.log &&
 
@@ -38,22 +41,23 @@ jobs:
             docker inspect cliffano/base &&
 
             make publish-docker-base arch=${{ matrix.arch }}
-      # cliffano/studio:3.2.0 is amd64 only and Packer crashes under emulation,
-      # so the arm64 build runs directly on the runner
-      # TODO: once image is bumped to a multi-arch cliffano/studio version, remove
-      #       the two arm64 steps below and the amd64 condition above
       - uses: hashicorp/setup-packer@v3
         if: matrix.arch == 'arm64'
         with:
           version: 1.16.0
-      # root is needed by provisioners/shell/clean.sh
       - if: matrix.arch == 'arm64'
-        run: |
-          sudo env "PATH=$PATH" make deps clean stage lint build-docker-base arch=${{ matrix.arch }}
+        run: >
+          sudo env "PATH=$PATH" make deps clean stage lint build-docker-base
+          arch=${{ matrix.arch }}
+
           cat logs/packer-docker-base.log
+
           docker --version
+
           docker info
+
           docker inspect cliffano/base
+
           make publish-docker-base arch=${{ matrix.arch }}
   manifest:
     needs: build
