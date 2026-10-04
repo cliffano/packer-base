@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add cdxgen provisioning
+- Add arm64 Docker image alongside amd64, published as multi-arch image
 
 ### Changed
 - Decouple deps from ci alias target

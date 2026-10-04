@@ -1,4 +1,6 @@
 version ?= 1.1.1-pre.0
+# Target image architecture (amd64 or arm64), defaults to the host architecture
+arch ?= $(shell uname -m | sed -e 's/x86_64/amd64/' -e 's/aarch64/arm64/')
 
 ci: clean stage lint build-docker-base
 
@@ -41,10 +43,18 @@ build-docker-base:
 		PACKER_TMP_DIR=/tmp/packer-tmp/ \
 		packer build \
 		-var-file=conf/docker-base.json \
+		-var arch=$(arch) \
 		templates/packer/docker-base.pkr.hcl
 
 publish-docker-base:
-	docker image push cliffano/base:latest
-	docker image push cliffano/base:$(version)
+	docker image push cliffano/base:$(version)-$(arch)
 
-.PHONY: ci clean rmdeps deps deps-upgrade lint build-aws-base build-docker-base publish-docker-base
+# Combine the per-architecture images into multi-arch version and latest tags
+publish-docker-base-manifest:
+	docker buildx imagetools create \
+		--tag cliffano/base:$(version) \
+		--tag cliffano/base:latest \
+		cliffano/base:$(version)-amd64 \
+		cliffano/base:$(version)-arm64
+
+.PHONY: ci clean rmdeps deps deps-upgrade lint build-aws-base build-docker-base publish-docker-base publish-docker-base-manifest

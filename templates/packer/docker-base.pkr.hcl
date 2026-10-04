@@ -16,13 +16,19 @@ variable "version" {
   default = "x.x.x"
 }
 
+variable "arch" {
+  type    = string
+  default = "amd64"
+}
+
 locals {
   env_path = "/var/homebrew/linked/cyclonedx-cli/bin/:/home/linuxbrew/.linuxbrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 }
 
 source "docker" "base" {
-  image  = "ubuntu:26.04"
-  commit = true
+  image    = "ubuntu:26.04"
+  platform = "linux/${var.arch}"
+  commit   = true
   run_command = [
     "-d",
     "-i",
@@ -92,7 +98,7 @@ build {
     repository = "cliffano/base"
     tags        = [
       "latest",
-      var.version
+      "${var.version}-${var.arch}"
     ]
   }
 }

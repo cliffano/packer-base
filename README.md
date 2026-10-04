@@ -14,7 +14,7 @@ Packer Base is a Packer builder of Docker base image which contains vanilla Ubun
 
 ## Installation
 
-Pull Base Docker image from Docker Hub:
+Pull Base Docker image from Docker Hub, the image is available for `linux/amd64` and `linux/arm64` architectures:
 
 ```shell
 docker pull cliffano/base
@@ -28,14 +28,20 @@ cd packer-base
 make build-docker-base
 ```
 
+The image is built for the host architecture by default, the architecture can be specified explicitly using `arch` (`amd64` or `arm64`):
+
+```shell
+make build-docker-base arch=arm64
+```
+
 An image with `cliffano/base` repository and `latest` tag should show up:
 
 ```text
 shikadai> docker images
 
-REPOSITORY        TAG           IMAGE ID       CREATED          SIZE
-cliffano/base     0.9.0-pre.0   3cda8b4cf33c   27 minutes ago   4.63GB
-cliffano/base     latest        3cda8b4cf33c   27 minutes ago   4.63GB
+REPOSITORY        TAG                 IMAGE ID       CREATED          SIZE
+cliffano/base     0.9.0-pre.0-amd64   3cda8b4cf33c   27 minutes ago   4.63GB
+cliffano/base     latest              3cda8b4cf33c   27 minutes ago   4.63GB
 ubuntu            24.04         c35e29c94501   2 months ago     139MB
 ```
 
