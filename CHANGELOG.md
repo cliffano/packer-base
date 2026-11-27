@@ -6,8 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Add clean-image step to remove unnecessary files
+
 ### Changed
 - Simplify CI and publish workflow condition now that Studio 4.0.0 is multi-arch
+- Rename clean script to clean-runner
 
 ## 2.0.0 - 2026-10-04
 ### Added

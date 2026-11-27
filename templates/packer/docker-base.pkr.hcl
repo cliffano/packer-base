@@ -87,8 +87,15 @@ build {
     ]
   }
 
+  provisioner "shell" {
+    script = "provisioners/shell/clean-image.sh"
+    environment_vars = [
+      "ENV_PATH=${local.env_path}"
+    ]
+  }
+
   provisioner "shell-local" {
-    script = "provisioners/shell/clean.sh"
+    script = "provisioners/shell/clean-runner.sh"
     environment_vars = [
       "ENV_PATH=${local.env_path}"
     ]
