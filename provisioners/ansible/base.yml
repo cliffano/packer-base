@@ -17,7 +17,10 @@
           - zip
 
     - ansible.builtin.command: /home/linuxbrew/.linuxbrew/bin/brew install cyclonedx/cyclonedx/cyclonedx-cli
-    - ansible.builtin.command: /home/linuxbrew/.linuxbrew/bin/brew install cdxgen
+    # Install cdxgen via npm rather than brew, the brew formula pulls in
+    # dotnet, ruby, trivy, and sourcekitten which add GBs to the image
+    - ansible.builtin.command: /home/linuxbrew/.linuxbrew/bin/brew install node
+    - ansible.builtin.command: /home/linuxbrew/.linuxbrew/bin/npm install -g @cyclonedx/cdxgen
 
     - ansible.builtin.file:
         path: /root/.local/bin
