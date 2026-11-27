@@ -21,6 +21,9 @@
     # dotnet, ruby, trivy, and sourcekitten which add GBs to the image
     - ansible.builtin.command: /home/linuxbrew/.linuxbrew/bin/brew install node
     - ansible.builtin.command: /home/linuxbrew/.linuxbrew/bin/npm install -g @cyclonedx/cdxgen
+      environment:
+        # npm and package install scripts use `#!/usr/bin/env node`
+        PATH: "/home/linuxbrew/.linuxbrew/bin:{{ ansible_env.PATH }}"
 
     - ansible.builtin.file:
         path: /root/.local/bin
